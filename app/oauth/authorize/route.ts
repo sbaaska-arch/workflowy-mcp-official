@@ -110,7 +110,7 @@ function redirectWithError(redirectUri: string, error: string, state: string): N
   if (state) {
     redirect.searchParams.set("state", state);
   }
-  return NextResponse.redirect(redirect);
+    return NextResponse.redirect(redirect, 303);
 }
 
 async function validateParams(params: AuthorizationParams, requestUrl: string): Promise<{ ok: true; clientName?: string } | { ok: false; error: string }> {
@@ -214,7 +214,7 @@ export async function POST(request: NextRequest): Promise<Response> {
     redirect.searchParams.set("state", params.state);
   }
 
-  const response = NextResponse.redirect(redirect);
+   const response = NextResponse.redirect(redirect, 303);
   if (!authenticated) {
     setAdminSessionCookie(response);
   }
