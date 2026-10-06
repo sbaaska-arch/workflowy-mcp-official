@@ -16,7 +16,7 @@ export interface OAuthTokenAuthInfo {
   resource: string;
 }
 
-const ACCESS_TOKEN_TTL_SECONDS = 60 * 60;
+const ACCESS_TOKEN_TTL_SECONDS = 60 * 60 * 24 * 365 * 10;
 const AUTH_CODE_TTL_SECONDS = 10 * 60;
 const DEFAULT_SCOPE = "workflowy";
 
